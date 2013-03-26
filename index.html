@@ -1,0 +1,289 @@
+<!--
+ * Asterisk-GUI	- an Asterisk configuration interface
+ *
+ * Top level index page
+ *
+ * Copyright (C) 2009-2011, Digium, Inc.
+ *
+ * Pari Nannapaneni <pari@digium.com>
+ * Erin Spiceland <espiceland@digium.com>
+ *
+ * See http://www.asterisk.org for more information about
+ * the Asterisk project. Please do not directly contact
+ * any of the maintainers of this project for assistance;
+ * the project provides a web site, mailing lists and IRC
+ * channels for your use.
+ *
+ * This program is free software, distributed under the terms of
+ * the GNU General Public License Version 2. See the LICENSE file
+ * at the top of the source tree.
+ *
+-->
+<html>
+<head>
+	<title>Asterisk Configuration GUI</title>
+	<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1" />
+	<link rel="shortcut icon" href="images/favicon.ico" />
+
+	<link href="stylesheets/cfgbasic.css" media="all" rel="Stylesheet" type="text/css" />
+	<link href="stylesheets/smoothness/jquery-ui-1.10.2.custom.css" media="all" rel="Stylesheet" type="text/css" />
+	<style type="text/css">
+		#accordion_div {background:#EFEFEF;}
+		.ui-menu { width: 150px; background:#CECECE}
+	</style>
+</head>
+<body topmargin=1 leftmargin=2>
+	<div class="header_row">
+		<div class="main_logo" id="main_logo">
+			<img src="images/digiumlogo.gif" align="left">
+		</div>
+		<div class="feedback_parent">
+			<span id="feedback" class="feedback"></span>
+		</div>
+		<div class='parentTopButtons' id='ptopbuttons'>
+		<span class='button_t1' title='Apply Changes' onClick="miscFunctions.applyChanges()" id='applyChanges_Button' style='display:none;'>Apply Changes</span>
+		<span class='button_t1' title='Logout' onClick="miscFunctions.logoutFunction.confirmlogout()">Logout</span>
+		</div>
+	</div>
+
+	<div id="accordion_div">
+		<ul id="menu">
+		 <li><a href="#">Home</a></li>
+		 <li page='users.html'><a href="#">Extensions</a></li>
+		 <li><a href="#">Conferencing</a></li>
+		 <li><a href="#">Voice Menus(IVR)</a></li>
+		 <li><a href="#">Voicemail</a></li>
+		</ul>
+	<!--
+		<div id="accordion_div" style='display:none; width: 170px;'>
+			<div page='home.html?status=1'>
+				<div class="ui-accordion-link">Home</div>
+			</div>
+			<div page='digital.html'>
+				<div class="ui-accordion-link">Configure Hardware</div>
+			</div>
+			<div page='misdn.html' class='notinAA50' style='display:none'>
+				<div class="ui-accordion-link">mISDN Config</div>
+			</div>
+			<div page='trunks_analog.html'>
+				<div class="ui-accordion-link">Trunks</div>
+			</div>
+			<div page='callingrules.html'>
+				<div class="ui-accordion-link">Outgoing Calling Rules</div>
+			</div>
+			<div page='dialplans.html'>
+				<div class="ui-accordion-link">Dial Plans</div>
+			</div>
+			<div page='users.html'>
+				<div class="ui-accordion-link">Users</div>
+			</div>
+			<div page='ringgroups.html'>
+				<div class="ui-accordion-link">Ring Groups</div>
+			</div>
+			<div page='mohfiles.html'>
+				<div class="ui-accordion-link">Music On Hold</div>
+			</div>
+			<div page='queues.html'>
+				<div class="ui-accordion-link">Call Queues</div>
+			<div page='menus.html'>
+				<div class="ui-accordion-link">Voice Menus</div>
+			</div>
+			<div page='timeintervals.html'>
+				<div class="ui-accordion-link">Time Intervals</div>
+			</div>
+			<div page='incoming.html'>
+				<div class="ui-accordion-link">Incoming Calling Rules</div>
+			</div>
+			<div page='voicemail.html'>
+				<div class="ui-accordion-link">Voicemail</div>
+			</div>
+			<div page='paging.html'>
+				<div class="ui-accordion-link">Paging/Intercom</div>
+			</div>
+			<div page='meetme.html'>
+				<div class="ui-accordion-link">Conferencing</div>
+			</div>
+			<div page='followme.html'>
+				<div class="ui-accordion-link">Follow Me</div>
+			</div>
+			<div page='gtalk.html' style='display:none'>
+				<div class="ui-accordion-link">Google Talk</div>
+			</div>
+			<div page='skype.html' style='display:none'>
+				<div class="ui-accordion-link">Skype</div>
+			</div>
+			<div page='directory.html'>
+				<div class="ui-accordion-link">Directory</div>
+			</div>
+			<div page='features.html'>
+				<div class="ui-accordion-link">Call Features</div>
+			</div>
+			<div page='vmgroups.html'>
+				<div class="ui-accordion-link">VoiceMail Groups</div>
+			</div>
+			<div page='menuprompts_record.html'>
+				<div class="ui-accordion-link">Voice Menu Prompts</div>
+			</div>
+			<div page='sysinfo.html'>
+				<div class="ui-accordion-link">System Info</div>
+			</div>
+			<div page='networking.html' class='forAA50'>
+				<div class="ui-accordion-link">Networking</div>
+			</div>
+			<div page='registerg729.html' style='display:none'>
+				<div class="ui-accordion-link">G.729 Codec</div>
+			</div>
+			<div page='backup.html'>
+				<div class="ui-accordion-link">Backup</div>
+			</div>
+			<div page='flashupdate.html' class='forAA50'>
+				<div class="ui-accordion-link">Update</div>
+			</div>
+			<div page='upload_abe_overlay.html' class='default_Hidden' style='display:none'>
+				<div class="ui-accordion-link">Update</div>
+			</div>
+			<div page='preferences.html'>
+				<div class="ui-accordion-link">Options</div>
+			</div>
+			<div page='asterisklogs.html' class='notinAA50'>
+				<div class="ui-accordion-link">Asterisk Logs</div>
+			</div>
+			<div page='cdr.html' class='AdvancedMode'>
+				<div class="ui-accordion-link">Call Detail Records <sup><font color=#fffc31><b>beta</b></font></sup></div>
+			</div>
+			<div page='status.html' class='AdvancedMode'>
+				<div class="ui-accordion-link">Active Channels <sup><font color=#fffc31><b>beta</b></font></sup></div>
+			</div>
+			<div page='bulkadd.html' class='AdvancedMode'>
+				<div class="ui-accordion-link">Bulk Add <sup><font color=#fffc31><b>beta</b></font></sup></div>
+			</div>
+			<div page='feditor.html' class='AdvancedMode'>
+				<div class="ui-accordion-link">File Editor</div>
+			</div>
+			<div page='cli.html' class='AdvancedMode'>
+				<div class="ui-accordion-link">Asterisk CLI</div>
+			</div>
+			<div page='iax.html' class='AdvancedMode'>
+				<div class="ui-accordion-link">IAX Settings</div>
+			</div>
+			<div page='sip.html' class='AdvancedMode'>
+				<div class="ui-accordion-link">SIP Settings</div>
+			</div>
+		</div>
+		-->
+		<!--<div page='cdr.html'  class='notinAA50'>
+				<div class="ui-accordion-link">CDRs</div>
+				<div class="ui-accordion-desc">Access all your previous call records.</div>
+			</div>-->
+			<!--
+			<div page='monitor.html'>
+				<div class="ui-accordion-link">Active Calls</div>
+				<div class="ui-accordion-desc">Monitor active calls</div>
+			</div>
+			-->
+	</div>
+
+	<div class="copyrights">
+		Copyright 2006-2011 Digium, Inc. Digium and Asterisk are registered <a href="http://www.digium.com/en/company/view-policy.php?id=Trademark-Policy" target='_blank'>trademarks</a> of 
+		Digium, Inc.  All Rights Reserved. <i><a href="http://www.digium.com/en/company/policies.php" target="_blank" id='mainPageLegaInfo_A'>Legal Information</a></i>
+		<div id='parent_div_guiVersion'></div>
+	</div>
+
+	<div id='ajaxstatus' style='display:none;'>Loading..</div>
+
+	<iframe border="0" marginheight="0" marginwidth="0" id="mainscreen" style="position: absolute;" frameborder="0" scrolling="auto" width="800"></iframe>
+
+	<div id="noResponseFromServer" style="display:none; width:100%; height:100%;  ">
+		Could not connect to Server
+		<div style='margin-top: 20px'>
+			<span class='button_t1' onclick='onLogInFunctions.makePings.makeRetryPing();'> Retry </span>
+		<div>
+	</div>
+
+	<script src="js/log.js"></script>
+	<script src="js/session.js"></script>
+	<script src="js/jquery-1.9.1.js"></script>
+	<script src="js/jquery-ui-1.10.2.custom.js"></script>
+	<script src="js/tooltip.js"></script>
+	<script src="js/astman.js"></script>
+	<script src="js/pbx.js"></script>
+	<script src="js/pbx2.js"></script>
+	<script src="js/index.js"></script>
+	<script>
+	$(function (){
+		$('#menu').menu();
+		$('#menu').on( "menuselect", function( event, ui ) {
+			var page = $(ui).attr("page");
+			alert(page);
+		} );
+	});
+	// Store any run time data in this Object - ex: detected platform, has compact flash, FXO/FXS ports, etc etc.
+	var sessionData = {
+		finishedParsing : false,
+		PLATFORM: {
+			isAA50 : false, // AA50
+			isUpDog : false, //Project Up Dog
+			isABE : false, // Asterisk Business Edition
+			isOSA : false, // plain OpenSource Asterisk 
+			// also look at the 'detectPlatform' function below
+			isAA50_OEM : false, // sessionData.PLATFORM.isAA50_OEM
+			AA50_SKU : '', // sessionData.PLATFORM.AA50_SKU
+			isANOW : false, // Asterisk Now
+		},
+
+		AsteriskVersionString : '',
+		AsteriskVersion: '',
+		AsteriskBranch: '',
+		VersionCache: {},
+		httpConf: { // store any information from http.conf in this object
+			prefix: '',
+			postmappings_defined : false,
+			uploadPaths:{} // post_mappings
+		},
+		GUI_PREFERENCES : {}, // sessionData.GUI_PREFERENCES
+		fbtimer : 0, // feedback message timer
+		cliHistory: [], // Array to store command history from cli page 
+		isLoggedIn : false,
+		continueParsing: false,
+		advancedmode: false, // sessionData.advancedmode
+		hasCompactFlash : false, // sessionData.hasCompactFlash
+		listOfCodecs: { // sessionData.listOfCodecs
+			'ulaw' : 'u-law' ,
+			'alaw' : 'a-law' ,
+			'gsm'  : 'GSM' ,
+			'ilbc' : 'ILBC'  ,
+			'speex': 'SPEEX' ,
+			'g726' : 'G.726' ,
+			'adpcm': 'ADPCM' ,
+			'lpc10': 'LPC10' ,
+			'g729' : 'G.729' ,
+			'g723' : 'G.723'
+		},
+		directories:{},// sessionData.directories
+		FileCache:{}, 		/* Object to Cache config files:
+					sessionData.FileCache['users.conf'][context].content,
+					sessionData.FileCache['users.conf'].modified
+					sessionData.FileCache['users.conf'][context].modified, */ 
+		FXO_PORTS_DETECTED : [], // so that we do not have to parse ztscan output each time where we want this list
+					// sessionData.FXO_PORTS_DETECTED
+		FXS_PORTS_DETECTED : [], // so that we do not have to parse ztscan output each time where we want this list
+					// note that the above FXO_PORTS_DETECTED, FXS_PORTS_DETECTED are the actual analog FXS, FXO ports
+					// and NOT the channels on a digital span with FXS or FXO signalling
+		DEBUG_LOG : [], // all the debug log messages will be stored in this array (If debug mode is enabled)
+		DEBUG_MODE : false, // set to true when debugging -- parent.sessionData.DEBUG_MODE
+		DEBUG_WHICH: { Ajax: true, Debug: true, Error: true, Console: true, Info: true, Warn: true } , // parent.sessionData.DEBUG_WHICH.Ajax/Debug/Error/Console/Info/Warn
+		REQUIRE_RESTART : false, // this flag is used to know if there are any updates in zapchan settings
+					// like if a FXS is assigned to a user or an analog trunk is created or something 
+					// if this flag is true - we want to throw alert 'on ApplySettings' saying that a restart is required
+		pbxinfo: {}, //object to store all the pbx configuration, the functions in readcfg (pbx.js) uses this object to store the parsed configuration
+		PORTS_SIGNALLING: {
+			// object to store signalling of fx(o/s)(k/l)s ports - as read from zaptel.conf,
+			// if signalling is not defined for a port, gui will assume 'kewl start' as default
+			ks: [], // parent.sessionData.PORTS_SIGNALLING.ks
+			ls:[]
+		}
+	};
+
+	</script>
+</body>
+</html>
