@@ -25,7 +25,7 @@ var MULTI_FIELDS = ['edit_check_multiple_obcid','edit_multiple_obcid','edit_chec
 
 var show_UserEdit_normal = function(){ // show_UserEdit_normal();
 	$('#edit_User_Advanced_DIV').hideWithBg();
-	$('#edit_userExtension_div').showWithBg();
+	$('#edit_userExtension_div').show( "fold", 1000 );
 };
 
 var save_User_Advanced = function(){ // save_User_Advanced();
@@ -53,7 +53,7 @@ var save_User_Advanced = function(){ // save_User_Advanced();
 
 var show_UserEdit_Advanced = function(){ // show_UserEdit_Advanced();
 	parent.ASTGUI.dialog.waitWhile('Loading ..') ;
-	$('#edit_User_Advanced_DIV').showWithBg();
+	$('#edit_User_Advanced_DIV').show( "fold", 1000 );
 	$('#edit_userExtension_div').hideWithBg();
 	$('#edit_User_Advanced_DIV .dialog_title > span').html( 'Edit User ' + EXTENSION_EDIT + " -- Advanced");
 
@@ -300,7 +300,7 @@ var NEW_USER_FORM = function(){ // NEW_USER_FORM();
 	ASTGUI.feedback( { msg: 'Create New User !', showfor: 2 , color: 'green', bgcolor: '#FFFFFF' } );
 	RESET_USER_FORM_FIELDS();
 	$('#edit_fxs').change(); /* disable/enabled 3-way/callwaiting based on analog */
-	$('#edit_userExtension_div').showWithBg();
+	$('#edit_userExtension_div').show( "fold", 1000 );
 	$('#User_AdvancedEditButton').hide();
 };
 
@@ -312,7 +312,7 @@ var EDIT_USER_FORM = function(a){ // EDIT_USER_FORM();
 	_$('edit_userExtension_div_title').innerHTML = 'Edit User Extension - ' + a ;
 	RESET_USER_FORM_FIELDS();
 	$('#edit_fxs').change(); /* disable/enabled 3-way/callwaiting based on analog */
-	$('#edit_userExtension_div').showWithBg();
+	$('#edit_userExtension_div').show( "fold", 1000 );
 	try{_$('edit_userExtension_div').scrollIntoView(true);}catch(err){}
 };
 	
@@ -340,7 +340,7 @@ var EDIT_SELECTEDUSERs_FORM = function(){ // EDIT_SELECTEDUSERs_FORM();
 	_$('edit_multiple_codec_three').selectedIndex = 0
 	_$('edit_multiple_codec_fourth').selectedIndex = 0
 	_$('edit_multiple_codec_fifth').selectedIndex = 0
-	$('#edit_selectedExtensions_div').showWithBg();
+	$('#edit_selectedExtensions_div').show( "fold", 1000 );
 };
 
 var DELETE_USER = function(a){ // DELETE_USER();

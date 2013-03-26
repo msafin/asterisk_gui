@@ -213,8 +213,8 @@
 	$(function (){
 		$('#menu').menu();
 		$('#menu').on( "menuselect", function( event, ui ) {
-			var page = $(ui).attr("page");
-			alert(page);
+			var page = ui.item.attr("page");
+			DOM_mainscreen.src = page ;
 		} );
 	});
 	// Store any run time data in this Object - ex: detected platform, has compact flash, FXO/FXS ports, etc etc.
