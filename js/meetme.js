@@ -24,7 +24,6 @@ var EDIT_BRIDGE ;
 var loadDOMElements = function(){
 	DOM_table_mml = _$('table_meetmelist');
 	DOM_edit_MeetMeDiv = _$('edit_MeetMeDiv');
-	DOM_edit_MeetMe_title = _$('edit_MeetMe_title');
 	DOM_edit_Ext = _$('edit_Ext');
 	DOM_edit_adminExtension = _$('edit_adminExtension');
 	DOM_edit_PinCode = _$('edit_PinCode');
@@ -129,9 +128,12 @@ var show_MeetMe_Form = function(){
 		//mml.push(DOM_edit_Ext.value);
 		_$('edit_adminExtension').value = ''; // mml.firstAvailable( parent.sessionData.GUI_PREFERENCES.getProperty('mm_start') );
 		DOM_edit_Ext.disabled = false;
-		DOM_edit_MeetMe_title.innerHTML = 'New Conference Bridge';
-		ASTGUI.feedback( { msg:'New Conference Bridge', showfor: 3 } );
-		$(DOM_edit_MeetMeDiv).showWithBg();
+		$('#edit_MeetMeDiv').dialog({ width: 900,title:"New Conference Bridge",
+											buttons:[
+											 {text:"Cancel",click:function() { $( this ).dialog( "close" );}},
+											 {text:"Update",click:function() { edit_meetMe_apply();;}}
+											 ]
+										});
 		return;
 	}
 
@@ -151,9 +153,12 @@ var show_MeetMe_Form = function(){
 	DOM_edit_waitMarked.checked = ( room_options.contains('w') ) ? true : false ;
 	DOM_edit_closeLastMarkedUser.checked = ( room_options.contains('x') ) ? true : false ;
 	DOM_edit_recording.checked = ( room_options.contains('r') ) ? true : false ;
-	DOM_edit_MeetMe_title.innerHTML = 'Edit Conference Bridge ' + EDIT_BRIDGE ;
-	ASTGUI.feedback( { msg:"Edit 'Conference Bridge'", showfor:2 } );
-	$(DOM_edit_MeetMeDiv).showWithBg();
+	$('#edit_MeetMeDiv').dialog({ width: 900,title:"Edit Conference Bridge " + EDIT_BRIDGE ,
+									buttons:[
+									 {text:"Cancel",click:function() { $( this ).dialog( "close" );}},
+									 {text:"Update",click:function() { edit_meetMe_apply();;}}
+									 ]
+								});
 };
 
 var edit_meetMe_apply = function(){
