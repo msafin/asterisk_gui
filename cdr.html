@@ -25,6 +25,8 @@
 	<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1" />
 
 	<link href="stylesheets/schwing.css" media="all" rel="Stylesheet" type="text/css" />
+	<link href="stylesheets/smoothness/jquery-ui-1.10.2.custom.css" media="all" rel="Stylesheet" type="text/css" />
+	
 	<style type="text/css">
 		div#cdr_content_container {
 			overflow: auto;
@@ -59,7 +61,7 @@
 </head>
 <body bgcolor="EFEFEF">
 	<div class="iframeTitleBar">
-		CDR Viewer (<span id="engine"></span>) <span class='refresh_icon' onclick="window.location.reload();" >&nbsp;<img src="images/refresh.png" title=" Refresh " border=0 >&nbsp;</span>
+		CDR Viewer (<span id="engine"></span>) <span class='refresh_icon' onClick="window.location.reload();" >&nbsp;<img src="images/refresh.png" title=" Refresh " border=0 >&nbsp;</span>
 	</div>
 
 	<div class='lite_Heading'>Call Detail Report</div>
@@ -84,8 +86,8 @@
 	<!-- <a href="cdr_conf.html" target="_self">Configure CDRs</a></div> -->
 	<div class='top_buttons' style="color: #6b79a5;">
 	<div id="info" class="info"></div>
-	<span id='prevPageBtn' class='guiButton' onclick="javascript: prevPage();">Previous</span>
-	<span id='nextPageBtn' class='guiButton' onclick="javascript: nextPage();">Next</span>
+	<span id='prevPageBtn' class='guiButton' onClick="javascript: prevPage();">Previous</span>
+	<span id='nextPageBtn' class='guiButton' onClick="javascript: nextPage();">Next</span>
 	Click on column header to sort by that column. Click on row to display full record.
 	</div>
 	<div id='cdr_content_container' style='margin-left: 10px; overflow:auto;'>
@@ -93,10 +95,10 @@
 	<div id="cdr_calldetail_DIV" STYLE="width:620; display:none;" class='dialog'>
 		<TABLE width="100%" cellpadding=0 cellspacing=0>
 		<TR class="dialog_title_tr">
-		<TD class="dialog_title" onmousedown="ASTGUI.startDrag(event);">
+		<TD class="dialog_title" onMouseDown="ASTGUI.startDrag(event);">
 				<span id='cdr_calldetail_Title'>Call Detail Record</span>
 		</TD>
-		<TD class="dialog_title_X" onclick="ASTGUI.hideDrag(event);"> X </TD>
+		<TD class="dialog_title_X" onClick="ASTGUI.hideDrag(event);"> X </TD>
 		</TR>
 		</TABLE>
 		<TABLE align=left cellpadding=2 cellspacing=2 border=0>
@@ -104,7 +106,8 @@
 		<TD id='cdr_calldetail_text'>Text here</TD>
 		</TR>
 	</div>
-	<script src="js/jquery.js"></script>
+	<script src="js/jquery-1.9.1.js"></script>
+	<script src="js/jquery-ui-1.10.2.custom.js"></script>
 	<script src="js/astman.js"></script>
 	<script src="js/cdr.js"></script>
 	<script src="js/jquery.tooltip.js"></script>
