@@ -4,7 +4,9 @@ body, td, th, textarea, input, select, h2, h3, h4, h5, h6 {
 
 /*header_row*/
 	.header_row{
-		min-width: 950px;
+		width: 100%;
+		height:50px;
+		background-color:#191919;
 	}
 		div.main_logo{ float: left; width: 170px;}
 	
@@ -25,13 +27,11 @@ body, td, th, textarea, input, select, h2, h3, h4, h5, h6 {
 				font-weight: bold;
 				z-index:9001;
 				display: none;
-				margin: 2px auto;
 			}
 		
 		div.parentTopButtons{
 			float: right; 
-			margin-top: 10px; 
-			margin-right: 3px; 
+			margin-top: 10px;  
 			margin-left: 3px; 
 			display:none;
 		}	

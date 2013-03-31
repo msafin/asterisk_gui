@@ -181,234 +181,209 @@
 </head>
 <body>
 	<div class="iframeTitleBar">
-		System Status
-		<span class='refresh_icon' onClick="window.location.reload();" >&nbsp;<img src="images/refresh.png" title=" Refresh " border=0 >&nbsp;</span>
+		  <h1>Welcome To <small>WoYu Tech PBX</small></h1>
 	</div>
 
 	<div id="sysstat_hdr_container">
 		<div id="ast_uptime"></div>
 		<div id="sys_uptime"></div>
 	</div>
-
-	<div class="left column">
-		<div id="sysstat_left_container" class="content_container">
-			<div id="sys_status_trunks" class="content">
-				<div class="handle title"> 
-					<span class="minimaxi">[ - ]</span>
-					<img src="images/asterisk_red.gif" class="title_img" />
-					Trunks <img class="loadTrunks" src="images/refresh.png" title="Refresh" border="0" />
+	
+	<div id="system_status">
+		 <ul>
+		 	<li><a href="#sys_status_info">System Info</a></li>
+			<li><a href="#sys_status_trunks">Trunks</a></li>
+			<li><a href="#sys_status_extensions">Extensions</a></li>
+			<li><a href="#sys_status_queues">Queues</a></li>
+			<li><a href="#sys_status_meetme">Conference</a></li>
+			<li><a href="#sys_status_plot">Parking Lot</a></li>
+		</ul>
+		<!--status info-->
+		<div id="sys_status_info" class="content">
+			<div class="clear"></div>
+			<div class="body">
+				<ul>
+					<li><a href="#info_general"><span>General</span></a></li>
+					<li><a href="#info_network"><span>Network</span></a></li>
+					<li><a href="#info_memory"><span>Memory</span></a></li>
+					<li><a href="#info_disk"><span>Disk</span></a></li>
+				</ul>
+				<div id="info_general">
+					<B>Hostname:</B> <div id="hostname" style="font-family:courier; font-size:10pt;"></div><BR>
+					<B>OS Version:</B> <div id="osversion" style="font-family:courier; font-size:10pt;"></div><BR>
+					<B>Asterisk Build:</B> <div id="asterisk" style="font-family:courier; font-size:10pt;"></div><BR>
+					<B>Server Date & Timezone</B> <div id="today" style="font-family:courier; font-size:10pt;"></div><BR>
+					<B>Uptime:</B> <div id="uptime" style="font-family:courier; font-size:10pt;"></div><BR>
 				</div>
-				<div class="clear"></div>
-				<div class="body">
-					<table id="trunks_list" class="list">
-					<thead>
-					<tr class="list_titles">
-						<th>Status</th>
-						<th>Trunk</th>
-						<th>Type</th>
-						<th>Username</th>
-						<th>Port/Hostname/IP</th>
-					</tr>
-					</thead>
-					<tbody>
-					</tbody>
-					</table>
+				<div id="info_network">
+					<div id="ifconfig" style="font-family:courier; font-size:9pt;overflow :auto;"></div>
 				</div>
-			</div>
-			<div id="sys_status_extensions" class="content">
-				<div class="handle title"> 
-					<span class="minimaxi">[ - ]</span>
-					<img src="images/asterisk_red.gif" class="title_img" />
-					Extensions
+				<div id="info_memory">
+					<B>Memory Usage:</B><div id="memoryusage" style="font-family:courier; font-size:9.5pt;"></div>
 				</div>
-				<div class="clear"></div>
-				<div class="body">
-					<span id="legend">
-						<img src="images/status_green.png" border="0"> Free 
-						<img src="images/status_orange.png" border="0"> Ringing 
-						<img src="images/status_red.png" border="0"> Busy 
-						<img src="images/status_gray.png" border="0"> UnAvailable 
-					</span>
-					<div id="extensions_sections">
-						<span title="all" class="section active"> All </span>
-						<span title="analog" class="section"> Analog </span>
-						<span title="feature" class="section"> Features </span>
-						<span title="iax" class="section"> IAX </span>
-						<span title="sip" class="section"> SIP </span>
+				<div id="info_disk">
+					<B>Disk Usage:</B><div id="diskusage" style="font-family:courier; font-size:10pt;"></div>
+					<div id="CF_Usage" style="display:none; width: 430px">
+						<table border=0>
+							<tr>	<td><b><nobr>CompactFlash&reg; : </b></nobr></td>
+								<td id="CF_Usage_td" width="300"></td>
+							</tr>
+						</table>
 					</div>
-					<div class="clear"></div>
-					<table id="extensions_list" class="list">
-					<thead>
-					<tr class="list_titles">
-						<th></th>
-						<th>Extension</th>
-						<th>Name/Label</th>
-						<th>Status</th>
-						<th>Type</th>
-					</tr>
-					</thead>
-					<tbody>
-					</tbody>
-					</table>
 				</div>
 			</div>
-			<div id="sys_status_queues" class="content">
-				<div class="handle title"> 
-					<span class="minimaxi">[ - ]</span>
-					<img src="images/asterisk_red.gif" class="title_img" />
-					Queues <img class="loadQueues" src="images/refresh.png" title="Refresh" border="0" />
+		</div>
+		<!--trunks-->
+		<div id="sys_status_trunks" class="content">
+			<div class="clear"></div>
+			<div class="body">
+				<table id="trunks_list" class="list">
+				<thead>
+				<tr class="list_titles">
+					<th>Status</th>
+					<th>Trunk</th>
+					<th>Type</th>
+					<th>Username</th>
+					<th>Port/Hostname/IP</th>
+				</tr>
+				</thead>
+				<tbody>
+				</tbody>
+				</table>
+			</div>
+		</div>
+		<!--extensions-->
+		<div id="sys_status_extensions" class="content">
+			<div class="clear"></div>
+			<div class="body">
+				<span id="legend">
+					<img src="images/status_green.png" border="0"> Free 
+					<img src="images/status_orange.png" border="0"> Ringing 
+					<img src="images/status_red.png" border="0"> Busy 
+					<img src="images/status_gray.png" border="0"> UnAvailable 
+				</span>
+				<div id="extensions_sections">
+					<span title="all" class="section active"> All </span>
+					<span title="analog" class="section"> Analog </span>
+					<span title="feature" class="section"> Features </span>
+					<span title="iax" class="section"> IAX </span>
+					<span title="sip" class="section"> SIP </span>
 				</div>
 				<div class="clear"></div>
-				<div class="body">
-					<div class="left column">
-						<div class="container" id="queue_left_container">
-							<div class="queue template">
-								<div class="title">
-									<span class="minimaxi">[ - ]</span>
-									<span class="name"></span> (<span class="strategy"></span>) - <span class="users_agents"></span> 
+				<table id="extensions_list" class="list">
+				<thead>
+				<tr class="list_titles">
+					<th></th>
+					<th>Extension</th>
+					<th>Name/Label</th>
+					<th>Status</th>
+					<th>Type</th>
+				</tr>
+				</thead>
+				<tbody>
+				</tbody>
+				</table>
+			</div>
+		</div>
+		<!--queues-->
+		<div id="sys_status_queues" class="content">
+			<div class="clear"></div>
+			<div class="body">
+				<div class="left column">
+					<div class="container" id="queue_left_container">
+						<div class="queue template">
+							<div class="title">
+								<span class="minimaxi">[ - ]</span>
+								<span class="name"></span> (<span class="strategy"></span>) - <span class="users_agents"></span> 
+							</div>
+							<div class="body">
+								<div class="calls">
+									<table class="list">
+									<tbody>
+									</tbody>
+									</table>
 								</div>
-								<div class="body">
-									<div class="calls">
-										<table class="list">
-										<tbody>
-										</tbody>
-										</table>
+								<div class="agents">
+									<div id="agent_template" class="template agent">
+										<img class="status_icon" src="" border="0" /> 
+										<span class="extension"></span>
 									</div>
-									<div class="agents">
-										<div id="agent_template" class="template agent">
-											<img class="status_icon" src="" border="0" /> 
-											<span class="extension"></span>
-										</div>
-									</div>
+								</div>
+								<div class="clear"></div>
+								<div class="stats">
+									Service Level: <span class="service_level"></span><br />
+									Calls Completed: <span class="calls_complete"></span><br />
+									Calls Abandoned: <span class="calls_abandoned"></span><br />
 									<div class="clear"></div>
-									<div class="stats">
-										Service Level: <span class="service_level"></span><br />
-										Calls Completed: <span class="calls_complete"></span><br />
-										Calls Abandoned: <span class="calls_abandoned"></span><br />
-										<div class="clear"></div>
-									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class="right column">
-						<div class="container" id="queue_right_container">
-						</div>
+				</div>
+				<div class="right column">
+					<div class="container" id="queue_right_container">
+					</div>
+				</div>
+				<div class="clear"></div>
+			</div>
+		</div>
+		<!--conference rooms-->
+		<div id="sys_status_meetme" class="content">
+			<div class="clear"></div>
+			<div class="body">
+				<div class="conf_room template">
+					<div class="title">
+						<span class="minimaxi">[ - ]</span>
+						<span class="refresh">@</span>
+						<span class="name"></span> - <span class="inuse status"></span>
 					</div>
 					<div class="clear"></div>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="right column">
-		<div id="sysstat_right_container" class="content_container">
-			<div id="sys_status_meetme" class="content">
-				<div class="handle title"> 
-					<span class="minimaxi">[ - ]</span>
-					<img src="images/asterisk_red.gif" class="title_img" />
-					Conference Rooms
-				</div>
-				<div class="clear"></div>
-				<div class="body">
-					<div class="conf_room template">
-						<div class="title">
-							<span class="minimaxi">[ - ]</span>
-							<span class="refresh">@</span>
-							<span class="name"></span> - <span class="inuse status"></span>
+					<div class="body">
+						<div class="actions">
+							<ul> Actions
+								<li><a href="#"><span class="kick action">Kick</span></a></li>
+								<li><a href="#"><span class="mute action">Mute</span></a></li>
+							</ul>
+							<span class="time"></span>
 						</div>
-						<div class="clear"></div>
-						<div class="body">
-							<div class="actions">
-								<ul> Actions
-									<li><a href="#"><span class="kick action">Kick</span></a></li>
-									<li><a href="#"><span class="mute action">Mute</span></a></li>
-								</ul>
-								<span class="time"></span>
-							</div>
-							<div class="members">
-								<table class="list">
-								<tbody>
-								<tr class="template">
-									<td class="checkbox"><img src="images/checkbox_blank.gif" /></td>
-									<td class="person"><img src="images/agent_loggedin.png" /></td>
-									<td class="extension"></td>
-									<td class="mem_status"></td>
-									<td class="duration"></td>
-								</tr>
-								</tbody>
-								</table>
-							</div>
-							<div class="clear"></div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div id="sys_status_plot" class="content">
-				<div class="handle title"> 
-					<span class="minimaxi">[ - ]</span>
-					<img src="images/asterisk_red.gif" class="title_img" />
-					Parking Lot
-				</div>
-				<div class="clear"></div>
-				<div class="body">
-					<table id="parking_lot_list" class="list">
-					<thead>
-					<tr class="list_titles">
-						<th>Caller ID</th>
-						<th>Channel</th>
-						<th>Extension</th>
-						<th>Timeout</th>
-					</tr>
-					</thead>
-					<tbody>
-					</tbody>
-					</table>
-				</div>
-			</div>
-		</div>
-		<div id="sysstat_botright_container" class="info_container">
-			<div id="sys_status_info">
-				<div class="title"> 
-					<span class="minimaxi">[ - ]</span>
-					<img src="images/asterisk_red.gif" class="title_img" />
-					System Info
-				</div>
-				<div class="clear"></div>
-				<div class="body">
-					<ul>
-						<li><a href="#info_general"><span>General</span></a></li>
-						<li><a href="#info_network"><span>Network</span></a></li>
-						<li><a href="#info_memory"><span>Memory</span></a></li>
-						<li><a href="#info_disk"><span>Disk</span></a></li>
-					</ul>
-					<div id="info_general">
-						<B>Hostname:</B> <div id="hostname" style="font-family:courier; font-size:10pt;"></div><BR>
-						<B>OS Version:</B> <div id="osversion" style="font-family:courier; font-size:10pt;"></div><BR>
-						<B>Asterisk Build:</B> <div id="asterisk" style="font-family:courier; font-size:10pt;"></div><BR>
-						<B>Server Date & Timezone</B> <div id="today" style="font-family:courier; font-size:10pt;"></div><BR>
-						<B>Uptime:</B> <div id="uptime" style="font-family:courier; font-size:10pt;"></div><BR>
-					</div>
-					<div id="info_network">
-						<div id="ifconfig" style="font-family:courier; font-size:9pt;overflow :auto;"></div>
-					</div>
-					<div id="info_memory">
-						<B>Memory Usage:</B><div id="memoryusage" style="font-family:courier; font-size:9.5pt;"></div>
-					</div>
-					<div id="info_disk">
-						<B>Disk Usage:</B><div id="diskusage" style="font-family:courier; font-size:10pt;"></div>
-						<div id="CF_Usage" style="display:none; width: 430px">
-							<table border=0>
-								<tr>	<td><b><nobr>CompactFlash&reg; : </b></nobr></td>
-									<td id="CF_Usage_td" width="300"></td>
-								</tr>
+						<div class="members">
+							<table class="list">
+							<tbody>
+							<tr class="template">
+								<td class="checkbox"><img src="images/checkbox_blank.gif" /></td>
+								<td class="person"><img src="images/agent_loggedin.png" /></td>
+								<td class="extension"></td>
+								<td class="mem_status"></td>
+								<td class="duration"></td>
+							</tr>
+							</tbody>
 							</table>
 						</div>
+						<div class="clear"></div>
 					</div>
 				</div>
 			</div>
 		</div>
+		<!--status plot-->
+		<div id="sys_status_plot" class="content">
+			<div class="clear"></div>
+			<div class="body">
+				<table id="parking_lot_list" class="list">
+				<thead>
+				<tr class="list_titles">
+					<th>Caller ID</th>
+					<th>Channel</th>
+					<th>Extension</th>
+					<th>Timeout</th>
+				</tr>
+				</thead>
+				<tbody>
+				</tbody>
+				</table>
+			</div>
+		</div>
 	</div>
+	
 	<div class="clear"></div>
 
 	<div id="sysstat_ftr_container">
@@ -441,6 +416,7 @@
 	});
 
 	/* jQuery tabs init */
+	$("#system_status").tabs();
 	$("#sys_status_info .body").tabs( {activate: function (e, ui) {
 		switch($(ui.newPanel).attr('id')) {
 		case 'info_general':

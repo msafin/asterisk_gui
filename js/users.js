@@ -296,11 +296,11 @@ var NEW_USER_FORM = function(){ // NEW_USER_FORM();
 	isNewUSER = true;
 	EXTENSION_EDIT = '';
 	zapchan_Before = '';
-	_$('edit_userExtension_div_title').innerHTML = 'Create New User';
-	ASTGUI.feedback( { msg: 'Create New User !', showfor: 2 , color: 'green', bgcolor: '#FFFFFF' } );
 	RESET_USER_FORM_FIELDS();
 	$('#edit_fxs').change(); /* disable/enabled 3-way/callwaiting based on analog */
-	$('#edit_userExtension_div').show( "fold", 1000 );
+	 $( "#edit_userExtension_div" ).tabs().addClass( "ui-tabs-vertical ui-helper-clearfix" );
+	$( "#edit_userExtension_div li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" );
+	$('#edit_userExtension_div').dialog({ width: 850,title:"Create New User" });
 	$('#User_AdvancedEditButton').hide();
 };
 
@@ -308,11 +308,11 @@ var EDIT_USER_FORM = function(a){ // EDIT_USER_FORM();
 	$('#User_AdvancedEditButton').show();
 	isNewUSER = false ;
 	EXTENSION_EDIT = a ;
-	ASTGUI.feedback( { msg: 'Edit User Extension !', showfor: 2 , color: 'green', bgcolor: '#FFFFFF' } );
-	_$('edit_userExtension_div_title').innerHTML = 'Edit User Extension - ' + a ;
 	RESET_USER_FORM_FIELDS();
 	$('#edit_fxs').change(); /* disable/enabled 3-way/callwaiting based on analog */
-	$('#edit_userExtension_div').show( "fold", 1000 );
+	$( "#edit_userExtension_div" ).tabs().addClass( "ui-tabs-vertical ui-helper-clearfix" );
+	$( "#edit_userExtension_div li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" );
+	$('#edit_userExtension_div').dialog({ width: 850,title:"Edit User Extension -"  + a });
 	try{_$('edit_userExtension_div').scrollIntoView(true);}catch(err){}
 };
 	
@@ -345,7 +345,7 @@ var EDIT_SELECTEDUSERs_FORM = function(){ // EDIT_SELECTEDUSERs_FORM();
 
 var DELETE_USER = function(a){ // DELETE_USER();
 	var reload_page = function(){
-		ASTGUI.feedback( { msg:'Deleted User - ' + a , showfor:2,  color:'#a02920' } );
+		//ASTGUI.feedback( { msg:'Deleted User - ' + a , showfor:2,  color:'#a02920' } );
 		parent.ASTGUI.dialog.hide();
 		window.location.reload();
 	};
@@ -366,7 +366,7 @@ var DELETE_SELECTED_USERS = function(){ // DELETE_SELECTED_USERS();
 	var after_deletingFirstUser = function(){
 		sel_users.removeFirst();
 		if(!sel_users.length ){
-			ASTGUI.feedback( { msg:'Deleted selected Users !!', showfor:2,  color:'#a02920' } );
+			//ASTGUI.feedback( { msg:'Deleted selected Users !!', showfor:2,  color:'#a02920' } );
 			parent.ASTGUI.dialog.hide();
 			window.location.reload();
 		}else{
