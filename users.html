@@ -89,12 +89,12 @@
 		}
 		
 		.clear { clear: both; }
-		.ui-tabs-vertical { width: 55em; }
+		.ui-tabs-vertical { width: 60em; }
 		.ui-tabs-vertical .ui-tabs-nav { float: left; width: 12em; }
 		.ui-tabs-vertical .ui-tabs-nav li { clear: left; width: 100%;}
 		.ui-tabs-vertical .ui-tabs-nav li a { display:block; }
 		.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active { padding-bottom: 0;}
-		.ui-tabs-vertical .ui-tabs-panel {padding-top:0; float: right; width: 40em; }
+		.ui-tabs-vertical .ui-tabs-panel {padding-top:0; float: right; width: 43em; }
 	</style>
 </head>
 <body bgcolor="#EFEFEF">
@@ -328,24 +328,18 @@
 					</fieldset>
 				</TD>
 			</TR>
-	
-			<TR>	
-				<TD align=center height=50 valign=middle>
-					<span class='guiButtonCancel' onclick='ASTGUI.hideDrag(event);'>Cancel</span>
-					<span class='guiButtonEdit' onclick='SAVE_USER_FORM();'>Update</span>
-				</TD>
-			</TR>
 			</TABLE>
 		</div>
 	</div>
 
 
-	<div id="edit_selectedExtensions_div" STYLE="width:600; display:none; " class='dialog'>
+	<div id="edit_selectedExtensions_div" STYLE="width:600; display:none">
+		<ul>
+		 	<li><a href="#basic_ex">Basic</a></li>
+			<li><a href="#expert_ex">Expert</a></li>
+		</ul>
+		<div id="basic_ex">
 		<TABLE width="100%" cellpadding=0 cellspacing=0>
-		<TR class="dialog_title_tr">
-			<TD class="dialog_title" onMouseDown="ASTGUI.startDrag(event);"> Modify Parameters on all selected users </TD>
-			<TD class="dialog_title_X" onClick="ASTGUI.hideDrag(event);"> X </TD>
-		</TR>
 		</TABLE>
 		<TABLE	align=center cellpadding=2 cellspacing=4 border=0 width='100%'>
 			<TR>
@@ -394,6 +388,24 @@
 			</TR>
 			<TR>
 				<TD></TD>
+				<TD><strong>VoIP Settings:</strong></TD>
+			</TR>
+			<TR>
+				<TD><input type=checkbox id='edit_check_multiple_secret'></TD>
+				<TD>
+					SIP/IAX Password: <img src="images/tooltip_info.gif" tip="en,users,2" class='tooltipinfo'>
+ 				<BR>	<input type=radio id='edit_multiple_seCHoice1' name='edit_multiple_seCHoice'> Use <input id="edit_multiple_secret" size=4> for all users 
+ 						<input type=radio id='edit_multiple_seCHoice2' name='edit_multiple_seCHoice'> Use Extension as Password
+ 						</TD>
+ 			</TR>
+		</TABLE>
+		</div>
+		<div id="expert_ex">
+		<TABLE width="100%" cellpadding=0 cellspacing=0>
+		</TABLE>
+		<TABLE	align=center cellpadding=2 cellspacing=4 border=0 width='100%'>
+			<TR>
+				<TD></TD>
 				<TD><strong>Codec Preference:</strong></TD>
 			</TR>
 			<TR>
@@ -416,18 +428,6 @@
 					rxflash: <input id='edit_multiple_rxflash' size=4> <img src="images/tooltip_info.gif" tip="en,users,31" class='tooltipinfo'>
 				</TD>
 			</TR>
-			<TR>
-				<TD></TD>
-				<TD><strong>VoIP Settings:</strong></TD>
-			</TR>
-			<TR>
-				<TD><input type=checkbox id='edit_check_multiple_secret'></TD>
-				<TD>
-					SIP/IAX Password: <img src="images/tooltip_info.gif" tip="en,users,2" class='tooltipinfo'>
- 				<BR>	<input type=radio id='edit_multiple_seCHoice1' name='edit_multiple_seCHoice'> Use <input id="edit_multiple_secret" size=4> for all users 
- 						<input type=radio id='edit_multiple_seCHoice2' name='edit_multiple_seCHoice'> Use Extension as Password
- 						</TD>
- 					</TR>
 				<TR>
 					<TD></TD>
 					<TD><strong>IAX Security Settings:</strong></TD>
@@ -529,12 +529,8 @@
 					Pickup Group: <select id='edit_multiple_pickupgroup'></select>
 				</TD>
 			</TR>
-			<TR>	<TD align=center valign=middle colspan=2>
-					<span class='guiButtonCancel' onclick='ASTGUI.hideDrag(event);'>Cancel</span>
-					<span class='guiButtonEdit' onclick='save_multiple_users();'>Update</span>
-				</TD>
-			</TR>
 		</TABLE>
+		</div>
 	</div>
 
 

@@ -300,7 +300,12 @@ var NEW_USER_FORM = function(){ // NEW_USER_FORM();
 	$('#edit_fxs').change(); /* disable/enabled 3-way/callwaiting based on analog */
 	 $( "#edit_userExtension_div" ).tabs().addClass( "ui-tabs-vertical ui-helper-clearfix" );
 	$( "#edit_userExtension_div li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" );
-	$('#edit_userExtension_div').dialog({ width: 850,title:"Create New User" });
+	$('#edit_userExtension_div').dialog({ width: 900,title:"Create New User" ,
+											buttons:[
+											 {text:"Cancel",click:function() { $( this ).dialog( "close" );}},
+											 {text:"Update",click:function() { SAVE_USER_FORM();}}
+											 ]
+										});
 	$('#User_AdvancedEditButton').hide();
 };
 
@@ -312,7 +317,12 @@ var EDIT_USER_FORM = function(a){ // EDIT_USER_FORM();
 	$('#edit_fxs').change(); /* disable/enabled 3-way/callwaiting based on analog */
 	$( "#edit_userExtension_div" ).tabs().addClass( "ui-tabs-vertical ui-helper-clearfix" );
 	$( "#edit_userExtension_div li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" );
-	$('#edit_userExtension_div').dialog({ width: 850,title:"Edit User Extension -"  + a });
+	$('#edit_userExtension_div').dialog({ width: 900,title:"Edit User Extension -"  + a ,
+											buttons:[
+											 {text:"Cancel",click:function() { $( this ).dialog( "close" );}},
+											 {text:"Update",click:function() { SAVE_USER_FORM();}}
+											 ]
+										});
 	try{_$('edit_userExtension_div').scrollIntoView(true);}catch(err){}
 };
 	
@@ -329,7 +339,7 @@ var EDIT_SELECTEDUSERs_FORM = function(){ // EDIT_SELECTEDUSERs_FORM();
 	ASTGUI.resetTheseFields( MULTI_FIELDS );
 	MULTI_FIELDS.each( function(this_field_str){
 		try{
-			_$(this_field_str).updateStatus();
+			//_$(this_field_str).updateStatus();
 		}catch(err){
 
 		}
@@ -340,7 +350,15 @@ var EDIT_SELECTEDUSERs_FORM = function(){ // EDIT_SELECTEDUSERs_FORM();
 	_$('edit_multiple_codec_three').selectedIndex = 0
 	_$('edit_multiple_codec_fourth').selectedIndex = 0
 	_$('edit_multiple_codec_fifth').selectedIndex = 0
-	$('#edit_selectedExtensions_div').show( "fold", 1000 );
+	//$('#edit_selectedExtensions_div').show( "fold", 1000 );
+	$( "#edit_selectedExtensions_div" ).tabs().addClass( "ui-tabs-vertical ui-helper-clearfix" );
+	$( "#edit_selectedExtensions_div li" ).removeClass( "ui-corner-top" ).addClass( "ui-corner-left" );
+	$('#edit_selectedExtensions_div').dialog({ width: 900,title:"Modify Parameters on all selected users",
+											buttons:[
+											 {text:"Cancel",click:function() { $( this ).dialog( "close" );}},
+											 {text:"Update",click:function() { save_multiple_users();}}
+											 ]
+										});
 };
 
 var DELETE_USER = function(a){ // DELETE_USER();
